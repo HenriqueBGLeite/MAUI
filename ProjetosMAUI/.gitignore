@@ -1,0 +1,50 @@
+# Diretórios de build
+bin/
+obj/
+
+# Artefatos gerados
+*.apk
+*.aab
+*.ipa
+*.app
+*.msix
+*.appx
+
+# Configurações locais
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Cache do Visual Studio / Rider / VS Code
+.vscode/
+.idea/
+_ReSharper*/
+
+# MAUI específicos
+Platforms/**/Resources/Raw/Designer.*
+Platforms/**/Resources/Raw/*.designer.*
+
+# Outros arquivos desnecessários
+*.pdb
+*.cache
+*.log
+*.dbmdl
+*.orig
+*.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Testes e relatórios
+TestResults/
+
+# Pacotes e artefatos NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+artifacts/
+
+# Publicação
+publish/
