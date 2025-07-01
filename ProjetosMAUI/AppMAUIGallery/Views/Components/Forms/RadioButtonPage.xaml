@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Components.Forms.RadioButtonPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="RadioButtonPage">
+    <VerticalStackLayout Padding="10">
+        <StackLayout>
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual linguagem de programação você mais gosta?"
+                VerticalOptions="Center" />
+
+            <RadioButton
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="C#"
+                Value="C#" />
+            <RadioButton CheckedChanged="RadioButton_CheckedChanged" Content="Java" />
+            <RadioButton
+                BorderColor="Blue"
+                BorderWidth="1"
+                CheckedChanged="RadioButton_CheckedChanged"
+                Content="JavaScript"
+                CornerRadius="5" />
+
+            <Label x:Name="LblResultAsk01" />
+        </StackLayout>
+
+        <StackLayout RadioButtonGroup.GroupName="ask02">
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual linguagem de programação você menos gosta?"
+                VerticalOptions="Center" />
+            <RadioButton Content="C#" />
+            <RadioButton Content="Java" />
+            <RadioButton Content="JavaScript" />
+        </StackLayout>
+
+        <StackLayout RadioButtonGroup.GroupName="ask03">
+            <Label
+                HorizontalOptions="Start"
+                Text="Qual é o mascote do .net MAUI?"
+                VerticalOptions="Center" />
+            <RadioButton>
+                <RadioButton.Content>
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Label Text="Robot" />
+                        <Image HeightRequest="20" Source="dotnet_bot.png" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+            <RadioButton>
+                <RadioButton.Content>
+                    <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                        <Label Text="PowerOn" />
+                        <Image HeightRequest="20" Source="poweron.png" />
+                    </HorizontalStackLayout>
+                </RadioButton.Content>
+            </RadioButton>
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

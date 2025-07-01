@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Lists.TableViewPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="TableViewPage">
+    <VerticalStackLayout Padding="10">
+        <TableView HasUnevenRows="True" Intent="Settings">
+            <TableRoot>
+                <TableSection Title="Segurança">
+                    <EntryCell Label="Proteger o App com senha" />
+                </TableSection>
+                <TableSection Title="Backup">
+                    <SwitchCell Text="Habilitar backup diário" />
+                    <SwitchCell Text="Habilitar backup semanal" />
+                    <SwitchCell Text="Habilitar backup mensal" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </VerticalStackLayout>
+</ContentPage>
