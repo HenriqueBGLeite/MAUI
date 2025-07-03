@@ -13,7 +13,10 @@ namespace AppMAUIGallery
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("BitcountGridDouble_Cursive-Medium.ttf", "BitcountMedium");
+                    fonts.AddFont("BitcountGridDouble_Roman-Bold.ttf", "BitcountBold");
                     fonts.AddFont("fonteDiferenciada.ttf", "FonteDiferente");
+                    fonts.AddFont("Icons.ttf", "Icons");
                 });
 
 #if DEBUG

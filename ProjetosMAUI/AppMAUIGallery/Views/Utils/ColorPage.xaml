@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Utils.ColorPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="ColorPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="30">
+            <Label
+                Padding="40"
+                BackgroundColor="#FF9900"
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!"
+                VerticalOptions="Center" />
+
+            <Border Padding="10">
+                <Border.Background>
+                    <SolidColorBrush Color="Aqua" />
+                </Border.Background>
+
+                <Label HorizontalTextAlignment="Center" Text="Olá Brush" />
+            </Border>
+
+            <!--  X/Y = 0/1 = 0 Inicio/1 Final  -->
+            <Border
+                Padding="10"
+                HeightRequest="300"
+                WidthRequest="300">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                        <GradientStop Offset="0.1" Color="#00C2FF" />
+                        <GradientStop Offset="1.0" Color="#A1E880" />
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Olá Brush"
+                    VerticalTextAlignment="Center" />
+            </Border>
+            <Border
+                Padding="10"
+                HeightRequest="300"
+                WidthRequest="300">
+                <Border.Background>
+                    <RadialGradientBrush Center="0.5, 0.5" Radius="0.5">
+                        <GradientStop Offset="0.3" Color="#52c234" />
+                        <GradientStop Offset="0.5" Color="#061700" />
+                    </RadialGradientBrush>
+                </Border.Background>
+
+                <Label
+                    HorizontalTextAlignment="Center"
+                    Text="Olá Brush"
+                    VerticalTextAlignment="Center" />
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
