@@ -7,9 +7,9 @@
     <VerticalStackLayout>
         <ImageButton
             Aspect="AspectFill"
+            Clicked="ImageButton_Clicked"
             HeightRequest="150"
             Source="poweroff.png"
-            Clicked="ImageButton_Clicked"
             WidthRequest="150" />
     </VerticalStackLayout>
 </ContentPage>

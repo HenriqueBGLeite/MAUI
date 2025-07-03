@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.Styles.GlobalStyle"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="GlobalStyle">
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label />
+            <Label Style="{StaticResource Title}" Text="Artigo 1" />
+            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ac efficitur ante, in bibendum nulla. Curabitur efficitur vehicula tellus, vel vulputate sapien dictum ac. Sed vel libero nibh. Phasellus diam nisi, fringilla at tincidunt vel, elementum rutrum ligula. Integer varius augue elit, ut pellentesque libero molestie in. Integer aliquam lectus blandit metus interdum rhoncus. Mauris dignissim faucibus risus imperdiet tincidunt. Aenean lorem ex, dapibus vel vestibulum nec, hendrerit sit amet urna. Duis convallis elit in ultricies luctus. Mauris feugiat erat nec tellus sagittis, non euismod ipsum placerat. Praesent aliquam, dui vitae sollicitudin convallis, felis nisi elementum erat, non ullamcorper sapien leo ac lectus." />
+            <Label Text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin nec nibh et libero ultrices convallis in eu nulla. Nullam eu tellus in lectus ultricies vulputate. Etiam nec porttitor odio. Sed mauris nulla, volutpat id imperdiet in, aliquet nec leo. Mauris feugiat dignissim tellus quis placerat. Cras ornare pretium scelerisque." />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

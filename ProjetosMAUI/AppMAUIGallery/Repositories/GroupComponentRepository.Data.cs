@@ -1,10 +1,13 @@
 ﻿using AppMAUIGallery.Models;
+using AppMAUIGallery.Views.Animations;
 using AppMAUIGallery.Views.Cells;
 using AppMAUIGallery.Views.Components.Forms;
 using AppMAUIGallery.Views.Components.Mains;
 using AppMAUIGallery.Views.Components.Visuals;
 using AppMAUIGallery.Views.Layouts;
 using AppMAUIGallery.Views.Lists;
+using AppMAUIGallery.Views.Styles;
+using AppMAUIGallery.Views.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +29,9 @@ namespace AppMAUIGallery.Repositories
             LoadForms();
             LoadCells();
             LoadCollections();
+            LoadStyles();
+            LoadAnimations();
+            LoadUtils();
         }
 
         private void LoadLayouts()
@@ -294,6 +300,104 @@ namespace AppMAUIGallery.Repositories
             };
 
             var group = new GroupComponent() { Name = "Listas e Coleções" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadStyles()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Implicit & Explicit Styles",
+                    Description = "Explicar como funciona os estilos.",
+                    Page = typeof(ImplicitExplicitStyles)
+                },
+                new Component {
+                    Title = "Global Style",
+                    Description = "Como criar estilos para todo o seu projeto?",
+                    Page = typeof(GlobalStyle)
+                },
+                new Component {
+                    Title = "ApplyDerivedTypes",
+                    Description = "Aplicar um estilo aos elementos derivados da classe/component atual.",
+                    Page = typeof(ApplyDerivedTypes)
+                },
+                new Component {
+                    Title = "Inheritance Style",
+                    Description = "Como criar estilos derivados de outros.",
+                    Page = typeof(InheritanceStyle)
+                },
+                new Component {
+                    Title = "Style Class",
+                    Description = "Cria classes de estilos para serem aplicadas aos nossos componentes.",
+                    Page = typeof(StyleClassPage)
+                },
+                new Component {
+                    Title = "StaticResource/DynamicResource",
+                    Description = "Define se o estilo pode ser alterado em tempo real.",
+                    Page = typeof(StaticDynamicResource)
+                },
+                new Component {
+                    Title = "Theme",
+                    Description = "Define um tema padrão para o nosso projeto.",
+                    Page = typeof(Theme)
+                },
+                new Component {
+                    Title = "AppThemeBinding",
+                    Description = "Adapta o tema ao modo claro/escuro do Sistema Operacional.",
+                    Page = typeof(AppThemeBindingPage)
+                },
+                new Component {
+                    Title = "Visual State Manager (VSM)",
+                    Description = "Personaliza a apresentação de acordo com o estado do componente.",
+                    Page = typeof(VisualStateManagerPage)
+                }
+            };
+
+            var group = new GroupComponent() { Name = "Styles" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadAnimations()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Basic Animation",
+                    Description = "Animação básica do .net MAUI.",
+                    Page = typeof(BasicAnimation)
+                }
+            };
+
+            var group = new GroupComponent() { Name = "Animation" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadUtils()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Behavior",
+                    Description = "Lógica que pode ser associada a um componente da tela.",
+                    Page = typeof(BehaviorPage)
+                },
+                new Component {
+                    Title = "Trigger",
+                    Description = "Gatilho que dispara uma alteração visual no componente.",
+                    Page = typeof(TriggerPage)
+                },
+                new Component {
+                    Title = "OnPlatform/OnIdiom",
+                    Description = "Define valores diferentes entre o S.O. e também pelo tipo de dispositivo.",
+                    Page = typeof(PlatformIdiomPage)
+                }
+            };
+
+            var group = new GroupComponent() { Name = "Útils" };
             group.AddRange(components);
 
             _components.AddRange(components);

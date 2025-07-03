@@ -3,61 +3,97 @@
     x:Class="AppTask.Views.AddEditTaskPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:AppTask.Libraries.Converters"
     NavigationPage.HasNavigationBar="False">
-    <Grid>
-        <BoxView
-            HeightRequest="5"
-            VerticalOptions="Start"
-            Color="{AppThemeBinding Light=Black,
-                                    Dark=White}" />
-        <VerticalStackLayout Padding="15" Spacing="10">
-            <Button
-                Padding="0"
-                Clicked="CloseModal"
-                FontAttributes="Bold"
-                HorizontalOptions="End"
-                MinimumHeightRequest="31"
-                MinimumWidthRequest="31"
-                Text="X" />
-            <Border StrokeShape="RoundRectangle 10">
-                <Entry Placeholder="Tarefa" />
-            </Border>
-            <Border StrokeShape="RoundRectangle 10">
-                <Editor HeightRequest="150" Placeholder="Descrição" />
-            </Border>
-            <Border StrokeShape="RoundRectangle 10">
-                <DatePicker x:Name="DatePickerTaskDate" />
-            </Border>
-            <Grid ColumnDefinitions="*, Auto">
-                <Label Text="Etapas (Subtarefas)" VerticalOptions="Center" />
+    <ContentPage.Resources>
+        <converter:BoolToTextDecorationStrikeThroughConverter x:Key="BoolToTextDecorationStrikeThroughConverter" />
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <BoxView
+                HeightRequest="5"
+                VerticalOptions="Start"
+                Color="{AppThemeBinding Light=Black,
+                                        Dark=White}" />
+            <VerticalStackLayout Padding="15" Spacing="10">
                 <Button
-                    Grid.Column="1"
                     Padding="0"
-                    Clicked="AddStep"
+                    Clicked="CloseModal"
                     FontAttributes="Bold"
+                    HorizontalOptions="End"
                     MinimumHeightRequest="31"
                     MinimumWidthRequest="31"
-                    Text="+" />
-            </Grid>
-
-            <Grid ColumnDefinitions="30, *, 30">
-                <CheckBox VerticalOptions="Center" />
+                    Text="X" />
+                <Border StrokeShape="RoundRectangle 10">
+                    <Entry x:Name="EntryTaskName" Placeholder="Tarefa" />
+                </Border>
                 <Label
-                    Grid.Column="1"
-                    Text="Etapa"
-                    VerticalOptions="Center" />
-                <Image
-                    Grid.Column="2"
-                    Source="trash.png"
-                    VerticalOptions="Center" />
-            </Grid>
-        </VerticalStackLayout>
-        <Button
-            Grid.Row="1"
-            Margin="15"
-            Clicked="SaveData"
-            HorizontalOptions="Center"
-            Text="Salvar"
-            VerticalOptions="End" />
-    </Grid>
+                    x:Name="LblTaskNameRequired"
+                    Margin="0,-7,0,5"
+                    IsVisible="False"
+                    Text="O campo é obrigatório!"
+                    TextColor="Red" />
+                <Border StrokeShape="RoundRectangle 10">
+                    <Editor
+                        x:Name="EditorTaskDescription"
+                        HeightRequest="150"
+                        Placeholder="Descrição" />
+                </Border>
+                <Label
+                    x:Name="LblTaskDescriptionRequired"
+                    Margin="0,-7,0,5"
+                    IsVisible="False"
+                    Text="O campo é obrigatório!"
+                    TextColor="Red" />
+                <Border StrokeShape="RoundRectangle 10">
+                    <DatePicker x:Name="DatePickerTaskDate" Format="dd/MM/yyyy" />
+                </Border>
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label Text="Etapas (Subtarefas)" VerticalOptions="Center" />
+                    <Button
+                        Grid.Column="1"
+                        Padding="0"
+                        Clicked="AddStep"
+                        FontAttributes="Bold"
+                        MinimumHeightRequest="31"
+                        MinimumWidthRequest="31"
+                        Text="+" />
+                </Grid>
+
+
+                <VerticalStackLayout x:Name="BindableLayout_Steps">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="30, *, 30">
+
+                                <CheckBox IsChecked="{Binding IsCompleted}" VerticalOptions="Center" />
+                                <Label
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    Text="{Binding Name}"
+                                    TextDecorations="{Binding IsCompleted, Converter={StaticResource BoolToTextDecorationStrikeThroughConverter}}"
+                                    VerticalOptions="Center" />
+                                <Image
+                                    Grid.Column="2"
+                                    Source="trash.png"
+                                    VerticalOptions="Center"
+                                    WidthRequest="25">
+                                    <Image.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnTapToDelete" />
+                                    </Image.GestureRecognizers>
+                                </Image>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+            <Button
+                Grid.Row="1"
+                Margin="15"
+                Clicked="SaveData"
+                HorizontalOptions="Center"
+                Text="Salvar"
+                VerticalOptions="End" />
+        </Grid>
+    </ScrollView>
 </ContentPage>
