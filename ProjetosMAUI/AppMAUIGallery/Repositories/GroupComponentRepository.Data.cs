@@ -1,4 +1,5 @@
 ﻿using AppMAUIGallery.Models;
+using AppMAUIGallery.Views.Accessability;
 using AppMAUIGallery.Views.Animations;
 using AppMAUIGallery.Views.Cells;
 using AppMAUIGallery.Views.CommunityMaui;
@@ -7,6 +8,7 @@ using AppMAUIGallery.Views.Components.Mains;
 using AppMAUIGallery.Views.Components.Visuals;
 using AppMAUIGallery.Views.Layouts;
 using AppMAUIGallery.Views.Lists;
+using AppMAUIGallery.Views.Shells;
 using AppMAUIGallery.Views.Styles;
 using AppMAUIGallery.Views.Utils;
 using System;
@@ -34,6 +36,8 @@ namespace AppMAUIGallery.Repositories
             LoadAnimations();
             LoadUtils();
             LoadCommunityMaui();
+            LoadShell();
+            LoadAccessability();
         }
 
         private void LoadLayouts()
@@ -446,6 +450,39 @@ namespace AppMAUIGallery.Repositories
             };
 
             var group = new GroupComponent() { Name = ".NET MAUI Community Toolkit" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadShell()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Shell",
+                    Description = "Uma nova forma de estruturar as páginas do nosso projeto.",
+                    Page = typeof(AppShell),
+                    IsReplaceMainPage = true
+                }
+            };
+
+            var group = new GroupComponent() { Name = "Shell" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadAccessability()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Semantic",
+                    Description = "Elemento que torna nosso aplicativo visível para quem tem necessidades especiais.",
+                    Page = typeof(AccessabilityPage)
+                }
+            };
+
+            var group = new GroupComponent() { Name = "Accessability" };
             group.AddRange(components);
 
             _components.AddRange(components);
