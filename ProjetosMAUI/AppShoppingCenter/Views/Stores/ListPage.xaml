@@ -19,15 +19,6 @@
                 </Entry.Behaviors>
             </Entry>
 
-            <Entry
-                MaxLength="15"
-                Placeholder="Enter Name"
-                Text="{Binding Name}">
-                <Entry.Behaviors>
-                    <toolkit:EventToCommandBehavior Command="{Binding NameChangedCommand}" EventName="TextChanged" />
-                </Entry.Behaviors>
-            </Entry>
-
             <CollectionView ItemsSource="{Binding EstablishmentsFiltered}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

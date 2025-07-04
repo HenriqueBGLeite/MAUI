@@ -20,27 +20,6 @@ namespace AppShoppingCenter.ViewModels.Stores
         [ObservableProperty]
         private List<Establishment> establishmentsFiltered;
 
-        [ObservableProperty]
-        string name = string.Empty;
-
-        private bool IsNameLengthValid { get; set; }
-
-        [RelayCommand]
-        private void NameChanged()
-        {
-
-            if (Name.Length >= 3)
-                IsNameLengthValid = true;
-            else
-                IsNameLengthValid = false;
-        }
-
-        [RelayCommand(CanExecute = nameof(IsNameLengthValid))]
-        async Task Submit()
-        {
-            
-        }
-
         public ListPageViewModel()
         {
             var service = new StoreService();
