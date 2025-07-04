@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppMAUIGallery.Views.CommunityMaui.MediaElementPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="MediaElementPage">
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <toolkit:MediaElement
+            x:Name="Player"
+            HeightRequest="274"
+            ShouldAutoPlay="False"
+            ShouldLoopPlayback="True"
+            ShouldShowPlaybackControls="False"
+            Source="https://static.videezy.com/system/resources/previews/000/033/826/original/pattaya-aerial-view30.mp4"
+            WidthRequest="520" />
+
+        <Button
+            Clicked="OnClickedToPlay"
+            HorizontalOptions="Center"
+            Text="Play"
+            WidthRequest="200" />
+    </VerticalStackLayout>
+</ContentPage>

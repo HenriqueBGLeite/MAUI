@@ -1,6 +1,7 @@
 ﻿using AppMAUIGallery.Models;
 using AppMAUIGallery.Views.Animations;
 using AppMAUIGallery.Views.Cells;
+using AppMAUIGallery.Views.CommunityMaui;
 using AppMAUIGallery.Views.Components.Forms;
 using AppMAUIGallery.Views.Components.Mains;
 using AppMAUIGallery.Views.Components.Visuals;
@@ -32,6 +33,7 @@ namespace AppMAUIGallery.Repositories
             LoadStyles();
             LoadAnimations();
             LoadUtils();
+            LoadCommunityMaui();
         }
 
         private void LoadLayouts()
@@ -408,6 +410,42 @@ namespace AppMAUIGallery.Repositories
             };
 
             var group = new GroupComponent() { Name = "Útils" };
+            group.AddRange(components);
+
+            _components.AddRange(components);
+            _groupComponents.Add(group);
+        }
+        private void LoadCommunityMaui()
+        {
+            var components = new List<Component> {
+                new Component {
+                    Title = "Snackbar e Toast",
+                    Description = "Formas de emitir alertas/mensagens para o usuário.",
+                    Page = typeof(AlertsPage)
+                },
+                new Component {
+                    Title = "Behaviors",
+                    Description = "Apresenta alguns behaviorrs que são: Masked, StatusBar e EventToCommand(MVVM).",
+                    Page = typeof(CommunityBehaviorPage)
+                },
+                new Component {
+                    Title = "Expander",
+                    Description = "Oculta e apresenta o componente.",
+                    Page = typeof(ExpanderPage)
+                },
+                new Component {
+                    Title = "Pop-up",
+                    Description = "Apresenta um modal na tela.",
+                    Page = typeof(PopupPage)
+                },
+                new Component {
+                    Title = "MediaElement",
+                    Description = "Player de mídia (Áudio/Vídeo).",
+                    Page = typeof(MediaElementPage)
+                }
+            };
+
+            var group = new GroupComponent() { Name = ".NET MAUI Community Toolkit" };
             group.AddRange(components);
 
             _components.AddRange(components);
