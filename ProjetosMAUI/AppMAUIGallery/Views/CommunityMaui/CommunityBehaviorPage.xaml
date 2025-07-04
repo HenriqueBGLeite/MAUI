@@ -24,9 +24,18 @@
         </Entry>
 
         <Button Pressed="OnPressed" Text="Chamar um Command sem o Behavior" />
+
         <Button Text="Chamar um Command com o EventToCommandBehavior">
             <Button.Behaviors>
                 <toolkit:EventToCommandBehavior Command="{Binding PressedCommand}" EventName="Pressed" />
+            </Button.Behaviors>
+        </Button>
+
+        <Button Text="Click Me">
+            <Button.Behaviors>
+                <toolkit:EventToCommandBehavior
+               EventName="Clicked"
+               Command="{Binding MyCommand}" />
             </Button.Behaviors>
         </Button>
     </VerticalStackLayout>

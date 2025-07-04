@@ -3,7 +3,7 @@
     x:Class="AppShoppingCenter.Views.Stores.ListPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:behaviors="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Stores"
     Title="ListPage">
     <ContentPage.BindingContext>
@@ -15,9 +15,19 @@
 
             <Entry Placeholder="Pesquisa por loja" Text="{Binding TextSearch}">
                 <Entry.Behaviors>
-                    <behaviors:EventToCommandBehavior Command="{Binding TextSearchChangedFilterListCommand}" EventName="TextChanged" />
+                    <toolkit:EventToCommandBehavior Command="{Binding TextSearchChangedFilterListCommand}" EventName="TextChanged" />
                 </Entry.Behaviors>
             </Entry>
+
+            <Entry
+                MaxLength="15"
+                Placeholder="Enter Name"
+                Text="{Binding Name}">
+                <Entry.Behaviors>
+                    <toolkit:EventToCommandBehavior Command="{Binding NameChangedCommand}" EventName="TextChanged" />
+                </Entry.Behaviors>
+            </Entry>
+
             <CollectionView ItemsSource="{Binding EstablishmentsFiltered}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
