@@ -33,7 +33,7 @@ namespace AppShoppingCenter.Libraries.Storages
             Preferences.Default.Set(key, JsonSerializer.Serialize(tickets));
         }
 
-        public List<Ticket> Load(Ticket ticket) 
+        public List<Ticket> Load() 
         { 
             if (Preferences.Default.ContainsKey(key))
             {

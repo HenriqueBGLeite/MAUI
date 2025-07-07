@@ -13,79 +13,87 @@
     <ContentPage.Resources>
         <converters:TimeSpanToTimeStringConverter x:Key="TimeSpanToTimeStringConverter" />
     </ContentPage.Resources>
-    <ScrollView>
-        <Grid
-            Padding="25"
-            RowDefinitions="auto, auto, *"
-            RowSpacing="10">
-            <Label>
-                <Label.FormattedText>
-                    <FormattedString>
-                        <FormattedString.Spans>
-                            <Span Style="{StaticResource HeadingText01}" Text="Tickets" />
-                            <Span Text="{x:Static system:Environment.NewLine}" />
-                            <Span Style="{StaticResource HeadingText02}" Text="Pagos" />
-                        </FormattedString.Spans>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
-            <Border
-                Grid.Row="1"
-                Padding="20"
-                Style="{StaticResource BorderDotStyle}">
-                <VerticalStackLayout Spacing="4">
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Text="Ticket #" />
-                                    <Span Text="{Binding Ticket.TicketNumber}" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label Margin="0,15,0,0">
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Style="{StaticResource SecondaryText}" Text="Permanência: " />
-                                    <Span Style="{StaticResource SecondaryText}" Text="{Binding Ticket, Converter={StaticResource TimeSpanToTimeStringConverter}}" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Style="{StaticResource SecondaryText}" Text="Entrada: " />
-                                    <Span Style="{StaticResource SecondaryText}" Text="{Binding Ticket.DateIn, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Style="{StaticResource SecondaryText}" Text="Saída: " />
-                                    <Span Style="{StaticResource SecondaryText}" Text="{Binding Ticket.DateOut, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <FormattedString.Spans>
-                                    <Span Style="{StaticResource DetailText02}" Text="Valor: " />
-                                    <Span Style="{StaticResource DetailText02}" Text="{Binding Ticket.Price, StringFormat='{0:C}'}" />
-                                </FormattedString.Spans>
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </VerticalStackLayout>
-            </Border>
-        </Grid>
-    </ScrollView>
+    <Grid RowDefinitions="70, *">
+        <Label Margin="20,0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <FormattedString.Spans>
+                        <Span Style="{StaticResource HeadingText01}" Text="Tickets" />
+                        <Span Text="{x:Static system:Environment.NewLine}" />
+                        <Span Style="{StaticResource HeadingText02}" Text="Pagos" />
+                    </FormattedString.Spans>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <CollectionView
+            Grid.Row="1"
+            EmptyView="Nenhum registro!"
+            ItemsSource="{Binding Tickets}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Border
+                            Grid.Row="1"
+                            Margin="20"
+                            Padding="20"
+                            Style="{StaticResource BorderDotStyle}">
+                            <VerticalStackLayout Spacing="4">
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Ticket #" />
+                                                <Span Text="{Binding TicketNumber}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label Margin="0,15,0,0">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Style="{StaticResource SecondaryText}" Text="Permanência: " />
+                                                <Span Style="{StaticResource SecondaryText}" Text="{Binding ., Converter={StaticResource TimeSpanToTimeStringConverter}}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Style="{StaticResource SecondaryText}" Text="Entrada: " />
+                                                <Span Style="{StaticResource SecondaryText}" Text="{Binding DateIn, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Style="{StaticResource SecondaryText}" Text="Saída: " />
+                                                <Span Style="{StaticResource SecondaryText}" Text="{Binding DateOut, StringFormat='{0:dd/MM/yyyy HH:mm}'}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Style="{StaticResource DetailText02}" Text="Valor: " />
+                                                <Span Style="{StaticResource DetailText02}" Text="{Binding Price, StringFormat='{0:C}'}" />
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

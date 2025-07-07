@@ -52,7 +52,7 @@
         <Setter Property="TextColor" Value="#FF5524" />
     </Style>
     <Style x:Key="BorderStyle" TargetType="Border">
-        <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}" />
         <Setter Property="StrokeShape" Value="RoundRectangle 5" />
         <Setter Property="StrokeThickness" Value="1" />
     </Style>
@@ -71,10 +71,10 @@
     </Style>
 
     <Style x:Key="BorderDotStyle" TargetType="Border">
-        <Setter Property="Margin" Value="0,20,0,0" />
-        <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="Margin" Value="0, 10, 0, 0" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Light=Black, Dark=White}" />
         <Setter Property="StrokeThickness" Value="1" />
-        <Setter Property="StrokeDashArray" Value="3,3" />
+        <Setter Property="StrokeDashArray" Value="3, 3" />
     </Style>
 
     <Style x:Key="SuccessText" TargetType="Label">

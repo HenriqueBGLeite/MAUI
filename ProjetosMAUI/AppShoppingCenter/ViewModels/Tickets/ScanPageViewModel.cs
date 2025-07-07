@@ -17,8 +17,7 @@ namespace AppShoppingCenter.ViewModels.Tickets
         [RelayCommand]
         private void Scan()
         {
-            //TODO - Abrir a câmera
-            Shell.Current.GoToAsync("pay");
+            Shell.Current.GoToAsync("camera");
         }
 
         partial void OnTicketNumberChanged(string value)
