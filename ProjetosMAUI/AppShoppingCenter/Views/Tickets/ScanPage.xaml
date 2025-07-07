@@ -3,11 +3,57 @@
     x:Class="AppShoppingCenter.Views.Tickets.ScanPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:maui="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
     Title="ScanPage">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.BindingContext>
+        <vm:ScanPageViewModel />
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <Grid
+            Padding="25"
+            RowDefinitions="auto, auto, *"
+            RowSpacing="10">
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span Style="{StaticResource HeadingText01}" Text="Pague o seu" />
+                            <Span Text="{x:Static system:Environment.NewLine}" />
+                            <Span Style="{StaticResource HeadingText02}" Text="ESTACIONAMENTO" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Border
+                Grid.Row="1"
+                Margin="0,50,0,0"
+                Style="{StaticResource BorderStyle}">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ScanCommand}" />
+                </Border.GestureRecognizers>
+                <Grid ColumnDefinitions="*, 20">
+                    <Entry Placeholder="Escanear ticket" Text="{Binding TicketNumber, Mode=TwoWay}">
+                        <Entry.Behaviors>
+                            <maui:MaskedBehavior Mask="XXX XXX XXX XXX" />
+                        </Entry.Behaviors>
+                    </Entry>
+                    <Image
+                        Grid.Column="1"
+                        Margin="0,0,10,0"
+                        HorizontalOptions="End"
+                        Source="camera.png"
+                        VerticalOptions="Center"
+                        WidthRequest="30" />
+                </Grid>
+            </Border>
+            <Button
+                Grid.Row="2"
+                Command="{Binding ListCommand}"
+                Style="{StaticResource ButtonStyle}"
+                Text="Tickets pagos"
+                VerticalOptions="End" />
+        </Grid>
+    </ScrollView>
 </ContentPage>

@@ -6,7 +6,7 @@
     xmlns:vm="clr-namespace:AppMAUIGallery.Views.CommunityMaui.ViewModels"
     Title="CommunityBehaviorPage">
     <ContentPage.BindingContext>
-        <vm:CommunityBehaviorPageViewModel />
+        <vm:CommunityBehaviorPageViewModel x:Name="vm" />
     </ContentPage.BindingContext>
     <ContentPage.Behaviors>
         <toolkit:StatusBarBehavior StatusBarColor="CadetBlue" StatusBarStyle="LightContent" />
@@ -25,6 +25,10 @@
 
         <Button Pressed="OnPressed" Text="Chamar um Command sem o Behavior" />
 
-        <Button Command="{Binding PressedCommand}" Text="Chamar um Command com o EventToCommandBehavior" />
+        <Button Text="Chamar um Command com o EventToCommandBehavior">
+            <Button.Behaviors>
+                <toolkit:EventToCommandBehavior Command="{Binding Path=PressedCommand, Source={x:Reference vm}}" EventName="Pressed" />
+            </Button.Behaviors>
+        </Button>
     </VerticalStackLayout>
 </ContentPage>

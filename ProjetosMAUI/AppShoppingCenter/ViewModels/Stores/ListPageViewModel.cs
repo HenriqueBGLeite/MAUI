@@ -22,7 +22,7 @@ namespace AppShoppingCenter.ViewModels.Stores
 
         public ListPageViewModel()
         {
-            var service = new StoreService();
+            var service = App.Current.Handler.MauiContext.Services.GetRequiredService<StoreService>();
             establishmentsFull = service.GetStores();
             establishmentsFiltered = establishmentsFull.ToList();
         }
@@ -31,10 +31,19 @@ namespace AppShoppingCenter.ViewModels.Stores
         private void OnTextSearchChangedFilterList()
         {
             EstablishmentsFiltered = establishmentsFull
-                .Where(
-                    a => a.Name.ToLower().Contains(TextSearch.ToLower())
-                )
+                .Where(a => a.Name.ToLower().Contains(TextSearch.ToLower()))
                 .ToList();
+        }
+
+        [RelayCommand]
+        private async void OnTapEstablishmentGoToDetailPage(Establishment establishment)
+        {
+            var navigationParameter = new Dictionary<string, object>()
+            {
+                { "establishment", establishment }
+            };
+
+            await Shell.Current.GoToAsync("detail", navigationParameter);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace AppShoppingCenter.Services
                     Type = EstablishmentType.Restaurant,
 
                     Logo = "https://botw-pd.s3.amazonaws.com/styles/logo-thumbnail/s3/102014/logo_outback.png?itok=dKkkYi4q",
-                    Cover = "https://www.parkshopping.com.br/sites/pks/files/styles/loja670x455/public/lojas/outback-01.jpg?itok=E5clX0sk"
+                    Cover = "https://newtrade.com.br/wp-content/uploads/2019/12/outback-loja-750x430.jpg"
                 },
                 new Establishment()
                 {
@@ -115,7 +115,7 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3491-1124",
                     Type = EstablishmentType.Restaurant,
 
-                    Logo = "https://www.partageshoppingbetim.com.br/wp-content/uploads/sites/3/2022/11/divino_fogao_logo.png",
+                    Logo = "https://publicimages.brmalls.com.br/shoppings/AJNA-3OWI0H.jpeg",
                     Cover = "https://www.divinofogao.com.br/wp-content/uploads/2021/03/DF-MOGI_GUA%C3%87U-FINAL-CAM2-REV04-01-1024x768.jpg"
                 },
                 new Establishment()

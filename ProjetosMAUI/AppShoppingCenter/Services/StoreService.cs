@@ -26,11 +26,12 @@ namespace AppShoppingCenter.Services
                 {
                     Id = 1,
                     Name = "Arezzo",
-                    Description = "Fundada em 1972 pelos irmãos Anderson e Jefferson Birman, a Arezzo comemora 50 anos de uma história dedicada a arte de transitar pelo mundo da moda e traduzir tendências para mulheres da vida real.\r\n\r\nHoje, a Arezzo é a maior marca de varejo de calçados femininos fashion da América Latina e conta com 450 lojas em sua rede de franquias, estando presente em 180 municípios de todos os estados brasileiros",
+                    Description = "Fundada em 1972 pelos irmãos Anderson e Jefferson Birman, a Arezzo comemora 50 anos de uma história dedicada a arte de transitar pelo mundo da moda e traduzir tendências para mulheres da vida real. Hoje, a Arezzo é a maior marca de varejo de calçados femininos fashion da América Latina e conta com 450 lojas em sua rede de franquias, estando presente em 180 municípios de todos os estados brasileiros",
                     Localization = "1 Piso, Loja 01 - Setor Norte",
                     Phone = "(31) 3154-5583",
                     Type = EstablishmentType.Store,
-                    Logo = "https://images.seeklogo.com/logo-png/1/1/arezzo-calcados-logo-png_seeklogo-10562.png"
+                    Logo = "https://diskfone.com.br/appDiskFone/assets/image/DocumentoCliente/023221/logo.jpg",
+                    Cover = "https://www.estadao.com.br/resizer/rBqzc0YbW4dBIs4uZIXLJ8qaZTE=/arc-anglerfish-arc2-prod-estadao/public/KP7KNT6STVP5PCSIQOMJMAT3HY.jpg"
                 },
                 new Establishment
                 {
@@ -41,8 +42,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3154-1234",
                     Type = Models.Enums.EstablishmentType.Store,
 
-                    Logo = "https://gsobmidia.com.br/uploads/lojas/1587/any-any_1607606261.png",
-                    Cover = "https://th.bing.com/th/id/R.3e7fcd5a62c507e0fe520211dc4da74e?rik=EVnAQuH8VECIyQ&riu=http%3a%2f%2f3.bp.blogspot.com%2f-OINRmqrcATk%2fVSepgubwKfI%2fAAAAAAAAL8Q%2fg_kjz4q1Owc%2fs1600%2fany_any_franquia.jpg&ehk=4BVqFRPzznt5pjxTpqgmiaXrWVjyv7uHZqsHG8OeMZk%3d&risl=&pid=ImgRaw&r=0"
+                    Logo = "https://iguatemi.com.br/patiohigienopolis/sites/patiohigienopolis/files/logo-1360262833900.png",
+                    Cover = "https://media.fashionnetwork.com/cdn-cgi/image/format=auto/m/3e5f/1097/8d6b/7475/3014/949c/cf47/f833/4f55/1a3f/1a3f.jpg"
                 },
                 new Establishment
                 {
@@ -77,8 +78,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3154-4153",
                     Type = Models.Enums.EstablishmentType.Store,
 
-                    Logo = "https://brossman.com.br/wp-content/uploads/2021/10/cropped-dg-coin-brossman-1.png",
-                    Cover = "https://photos.wikimapia.org/p/00/02/58/51/10_big.jpg"
+                    Logo = "https://pbs.twimg.com/profile_images/1122972200/Logo_diferente_400x400.jpg",
+                    Cover = "https://photos.wikimapia.org/p/00/02/58/51/10_full.jpg"
                 },
                 new Establishment
                 {
@@ -113,8 +114,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3679-153",
                     Type = Models.Enums.EstablishmentType.Store,
 
-                    Logo = "https://cuponomia-a.akamaihd.net/img/stores/original/casas-bahia-637628912275644345.png",
-                    Cover = "https://s2.glbimg.com/XO8XarHm4uZKPbyxNFpyE8JZlW0=/0x89:2048x1357/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_63b422c2caee4269b8b34177e8876b93/internal_photos/bs/2019/9/U/vyuTqHROC6j9Q6k7wRbg/19158185353-556b98ef7e-k.jpg"
+                    Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Casas_Bahia_logo.svg/2560px-Casas_Bahia_logo.svg.png",
+                    Cover = "https://admin.cnnbrasil.com.br/wp-content/uploads/sites/12/2021/06/31094_4F90E37C9A3EFCF1-1.jpeg"
                 },
 
                 new Establishment()
@@ -174,8 +175,8 @@ namespace AppShoppingCenter.Services
                     Phone = "-",
 
                     Type = EstablishmentType.Store,
-                    Logo = "https://static.pelando.com.br/live/merchants/avatar_web_square_94_2x/avatar/275_3.jpg",
-                    Cover = "https://th.bing.com/th/id/R.1f226d5f8aa941c3331ad54e050e542a?rik=Dyc%2bMw0eVGpc2A&pid=ImgRaw&r=0"
+                    Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Lojas_Americanas_Logo.svg/2560px-Lojas_Americanas_Logo.svg.png",
+                    Cover = "https://assets.multiplan.com.br/Multiplan/filer_public/3b/79/3b79da52-df20-430d-a345-f5e4c08ebcbd/vinidallarosa2024-7956.jpg?ims=x800"
                 },
                 new Establishment()
                 {
@@ -210,8 +211,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3475-2689",
                     Type = EstablishmentType.Store,
 
-                    Logo = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Logo_OI.svg/100px-Logo_OI.svg.png",
-                    Cover = "https://th.bing.com/th/id/R.5bf621f5ca2b8cb087e49fbd75821ddb?rik=l4T0pDrO2K8ODw&riu=http%3a%2f%2fwww.crama.com.br%2fwp-content%2fuploads%2f2013%2f10%2foiloja_02.jpg&ehk=KGJTS3ZmxFlK9yIZ4fXmMfLYMlSZAsWnBZMf1F7VyIQ%3d&risl=&pid=ImgRaw&r=0"
+                    Logo = "https://cdn.folhape.com.br/upload/dn_arquivo/2020/12/logo-oi-2020.jpg",
+                    Cover = "https://www.crama.com.br/wp-content/uploads/2013/10/oiloja_012.jpg"
                 },
                 new Establishment()
                 {
@@ -258,8 +259,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3471-8600",
                     Type = EstablishmentType.Store,
 
-                    Logo = "https://vagasabertas.org/wp-content/uploads/2012/03/Vagas-de-Emprego-na-empresa-Fujioka.jpg",
-                    Cover = "https://www.parkshopping.com.br/sites/pks/files/lojas/fujioka.jpg"
+                    Logo = "https://wp.logos-download.com/wp-content/uploads/2019/11/Fujioka_Logo.png?dl",
+                    Cover = "https://storage.googleapis.com/ancarx-stores-images-prd/0011I00000KMaSxQAL.jpeg"
                 },
                 new Establishment()
                 {
@@ -270,8 +271,8 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3475-2419",
                     Type = EstablishmentType.Store,
 
-                    Logo = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiRokiv_4pZyS25L8XL6Bd1ltaMtyv8loON_EwHwB1odjIY6lf_Ea9kb6qLKFoGmKIlUc&usqp=CAU",
-                    Cover = "https://www.abcdacomunicacao.com.br/wp-content/uploads/Quem-disse-Berenice_logo-500x375.png"
+                    Logo = "https://yt3.googleusercontent.com/BW_pYl1WiinhCWkfE4LyME8q-eBQL_5YsdLsEKNHyH2QTBMnyQRT_TTbxztNd_8aiOfKpu_3KA=s900-c-k-c0x00ffffff-no-rj",
+                    Cover = "https://www.salvadorshopping.com.br/storage/stores/vitrine_405.jpg"
                 },
                 new Establishment()
                 {
@@ -318,7 +319,7 @@ namespace AppShoppingCenter.Services
                     Phone = "(61) 3053-8009",
                     Type = EstablishmentType.Store,
 
-                    Logo = "https://th.bing.com/th/id/OIP.8Apu8unhr4A8enO5vgxF6gHaHa?pid=Api&rs=1",
+                    Logo = "https://yt3.googleusercontent.com/R9m_Ghi6LquIsxvy7RH9rQIwpgkIFAIXYknM0kUK4HjgGG5VZGybhAfZ3MTILWvz2Ygs3cXX=s900-c-k-c0x00ffffff-no-rj",
                     Cover = "https://s2.glbimg.com/9bW5xeF2TzgK6yrJ2IQF_gCMv2k=/e.glbimg.com/og/ed/f/original/2020/08/17/foto_materia_loa_01.jpg"
                 },
                 new Establishment()

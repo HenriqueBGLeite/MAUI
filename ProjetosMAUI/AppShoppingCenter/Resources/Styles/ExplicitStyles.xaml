@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="AppShoppingCenter.Resources.Styles.ExplicitStyles"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Style x:Key="PrimaryText" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="OpenSansBold" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Default='#000000', Dark='#FFFFFF'}" />
+        <Setter Property="TextTransform" Value="Uppercase" />
+    </Style>
+    <Style x:Key="SecondaryText" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="OpenSansLight" />
+        <Setter Property="TextColor" Value="#A0A0A0" />
+    </Style>
+    <Style x:Key="TercearyText" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="TextColor" Value="#404040" />
+    </Style>
+    <Style x:Key="HeadingText" TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontFamily" Value="OpenSansBold" />
+        <Setter Property="TextColor" Value="{AppThemeBinding Default='#000000', Dark='#FFFFFF'}" />
+    </Style>
+    <Style x:Key="DetailText" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="TextColor" Value="#A0A0A0" />
+    </Style>
+    <Style x:Key="DurationText" TargetType="Label">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontFamily" Value="OpenSansLight" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style x:Key="HeadingBase" TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+    </Style>
+
+    <Style
+        x:Key="HeadingText01"
+        BasedOn="{StaticResource HeadingBase}"
+        TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Default={StaticResource Black}, Dark={StaticResource White}}" />
+    </Style>
+    <Style
+        x:Key="HeadingText02"
+        BasedOn="{StaticResource HeadingBase}"
+        TargetType="Label">
+        <Setter Property="TextColor" Value="#FF5524" />
+    </Style>
+    <Style x:Key="BorderStyle" TargetType="Border">
+        <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="StrokeShape" Value="RoundRectangle 5" />
+        <Setter Property="StrokeThickness" Value="1" />
+    </Style>
+    <Style x:Key="ButtonStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#FF5524" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="CornerRadius" Value="25" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
+    </Style>
+    <Style x:Key="DetailText02" TargetType="Label">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="OpenSansBold" />
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+
+    <Style x:Key="BorderDotStyle" TargetType="Border">
+        <Setter Property="Margin" Value="0,20,0,0" />
+        <Setter Property="Stroke" Value="{AppThemeBinding Default={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="StrokeDashArray" Value="3,3" />
+    </Style>
+
+    <Style x:Key="SuccessText" TargetType="Label">
+        <Setter Property="TextColor" Value="#1BAB42" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+    <Style x:Key="ToleranceText" TargetType="Label">
+        <Setter Property="TextColor" Value="#000000" />
+        <Setter Property="FontSize" Value="34" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+    <Style x:Key="ToleranceMinutesText" TargetType="Label">
+        <Setter Property="TextColor" Value="#F86237" />
+        <Setter Property="FontSize" Value="52" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+    </Style>
+</ResourceDictionary>

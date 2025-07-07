@@ -18,7 +18,7 @@ namespace AppMAUIGallery.Views.CommunityMaui.ViewModels
 
         private void Pressed()
         {
-            App.Current.MainPage.DisplayAlert("Fui pressionado!", "Fui pressionado!", "OK");
+            App.Current.MainPage.DisplayAlert("Fui pressionado!", "Fui pressionado via Behavior!", "OK");
         }
     }
 }
