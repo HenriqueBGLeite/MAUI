@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:converters="clr-namespace:AppShoppingCenter.Libraries.Converters"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
-    Title="ResultPage">
+    Title="Voltar">
     <ContentPage.BindingContext>
         <vm:ResultPageViewModel />
     </ContentPage.BindingContext>
@@ -15,14 +15,17 @@
     <ScrollView>
 
         <VerticalStackLayout Padding="20">
-            <Label Style="{StaticResource HeadingText02}" Text="ESTACIONAMENTO" />
+            <Label
+                SemanticProperties.HeadingLevel="Level1"
+                Style="{StaticResource HeadingText02}"
+                Text="ESTACIONAMENTO" />
             <Border
                 Grid.Row="1"
                 Margin="0,40,0,0"
                 Padding="20"
                 Style="{StaticResource BorderDotStyle}">
                 <VerticalStackLayout Spacing="4">
-                    <Label>
+                    <Label SemanticProperties.HeadingLevel="Level2">
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
@@ -78,6 +81,7 @@
             <Label
                 Margin="0,40,0,0"
                 HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level2"
                 Style="{StaticResource SuccessText}"
                 Text="Pagamento aprovado" />
             <Label

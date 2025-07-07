@@ -7,7 +7,7 @@
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
     xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
-    Title="PayPage">
+    Title="Voltar">
     <ContentPage.BindingContext>
         <vm:PayPageViewModel />
     </ContentPage.BindingContext>
@@ -16,7 +16,7 @@
     </ContentPage.Resources>
     <ScrollView>
         <Grid Padding="25" RowDefinitions="auto, auto, auto">
-            <Label>
+            <Label SemanticProperties.HeadingLevel="Level1">
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
@@ -33,7 +33,7 @@
                 Padding="20"
                 Style="{StaticResource BorderDotStyle}">
                 <VerticalStackLayout Spacing="4">
-                    <Label>
+                    <Label SemanticProperties.HeadingLevel="Level2">
                         <Label.FormattedText>
                             <FormattedString>
                                 <FormattedString.Spans>
@@ -90,7 +90,7 @@
                 Padding="20"
                 Style="{StaticResource BorderDotStyle}">
                 <VerticalStackLayout Spacing="4">
-                    <Label Text="PIX" />
+                    <Label SemanticProperties.HeadingLevel="Level2" Text="PIX" />
                     <Label Style="{StaticResource SecondaryText}" Text="QR Code" />
                     <Border MaximumHeightRequest="300" StrokeThickness="0">
                         <zxing:BarcodeGeneratorView
@@ -99,16 +99,21 @@
                                                               Dark={StaticResource White}}"
                             Format="QrCode"
                             HeightRequest="100"
+                            SemanticProperties.Hint="QRCode de pagamento por pix"
                             WidthRequest="100"
                             Value="{Binding PixCode}" />
                     </Border>
                     <Label Style="{StaticResource SecondaryText}" Text="Copie e cole" />
                     <Border Style="{StaticResource BorderStyle}">
-                        <Entry IsReadOnly="True" Text="{Binding PixCode}" />
+                        <Entry
+                            IsReadOnly="True"
+                            SemanticProperties.Hint="Campo contendo o código copie e cole do pix"
+                            Text="{Binding PixCode}" />
                     </Border>
                     <Button
                         Margin="0,20,0,0"
                         Command="{Binding CopyAndPasteCommand}"
+                        SemanticProperties.Hint="Botão de copiar o código pix"
                         Style="{StaticResource ButtonStyle}"
                         Text="Copiar e colar" />
                 </VerticalStackLayout>

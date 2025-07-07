@@ -6,16 +6,16 @@
     xmlns:maui="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Tickets"
-    Title="ScanPage">
+    Title=" ">
     <ContentPage.BindingContext>
-        <vm:ScanPageViewModel />
+        <vm:ScanPageViewModel x:Name="vm" />
     </ContentPage.BindingContext>
     <ScrollView>
         <Grid
             Padding="25"
             RowDefinitions="auto, auto, *"
             RowSpacing="10">
-            <Label>
+            <Label SemanticProperties.HeadingLevel="Level1">
                 <Label.FormattedText>
                     <FormattedString>
                         <FormattedString.Spans>
@@ -34,8 +34,22 @@
                     <TapGestureRecognizer Command="{Binding ScanCommand}" />
                 </Border.GestureRecognizers>
                 <Grid ColumnDefinitions="*, 20">
-                    <Entry Placeholder="Escanear ticket" Text="{Binding TicketNumber, Mode=TwoWay}">
+                    <Entry
+                        x:Name="ticketEntry"
+                        Margin="{OnPlatform Default=0,
+                                            Android='10,0'}"
+                        Placeholder="{OnPlatform Default='Digite/Escaneie o ticket',
+                                                 WinUI='Digite o ticket'}"
+                        SemanticProperties.Description="O número do ticket é formado por 12 dígitos."
+                        SemanticProperties.Hint="{OnPlatform Default='Digite/Escaneie o ticket',
+                                                             WinUI='Digite o ticket'}"
+                        Text="{Binding TicketNumber}"
+                        VerticalOptions="Center">
                         <Entry.Behaviors>
+                            <maui:EventToCommandBehavior
+                                Command="{Binding Path=CheckTicketNumberCommand, Source={x:Reference vm}}"
+                                CommandParameter="{x:Reference ticketEntry}"
+                                EventName="TextChanged" />
                             <maui:MaskedBehavior Mask="XXX XXX XXX XXX" />
                         </Entry.Behaviors>
                     </Entry>
@@ -43,7 +57,12 @@
                         Grid.Column="1"
                         Margin="0,0,10,0"
                         HorizontalOptions="End"
-                        Source="camera.png"
+                        IsVisible="{OnPlatform WinUI=false,
+                                               Default=true}"
+                        SemanticProperties.Description="Leva à tela de escaneamento do ticket utilizando a câmera/webcam"
+                        SemanticProperties.Hint="Botão de escanear"
+                        Source="{AppThemeBinding Light='camera.png',
+                                                 Dark='camera_light.png'}"
                         VerticalOptions="Center"
                         WidthRequest="30">
                         <Image.GestureRecognizers>
@@ -55,6 +74,7 @@
             <Button
                 Grid.Row="2"
                 Command="{Binding ListCommand}"
+                SemanticProperties.Hint="Navega para a tela com todos os tickets já pagos"
                 Style="{StaticResource ButtonStyle}"
                 Text="Tickets pagos"
                 VerticalOptions="End" />

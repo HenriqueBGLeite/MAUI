@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Cinemas"
-    Title="ListPage">
+    Title="">
     <ContentPage.BindingContext>
         <vm:ListPageViewModel x:Name="vm" />
     </ContentPage.BindingContext>
@@ -45,6 +45,7 @@
                                 Aspect="Fill"
                                 HeightRequest="{OnPlatform Default=380,
                                                            WinUI=500}"
+                                SemanticProperties.Hint="{Binding Name, StringFormat='Capa do filme {0}.'}"
                                 Source="{Binding Cover}"
                                 WidthRequest="{OnPlatform Default=250,
                                                           WinUI=320}" />
@@ -54,9 +55,10 @@
                             Grid.Row="1"
                             HorizontalOptions="Center"
                             Spacing="5">
-                            <Image Source="clock.png" />
+                            <Image Source="{AppThemeBinding Light='clock.png', Dark='clock_light.png'}" />
                             <Label
                                 HorizontalOptions="Center"
+                                SemanticProperties.Hint="{Binding Duration, StringFormat='Duração do filme: {0:hh} horas e {0:mm} minutos.'}"
                                 Text="{Binding Duration}"
                                 VerticalOptions="Center" />
                         </HorizontalStackLayout>
@@ -66,6 +68,7 @@
                             Margin="0,20,0,0"
                             HorizontalOptions="Center"
                             HorizontalTextAlignment="Center"
+                            SemanticProperties.HeadingLevel="Level1"
                             Style="{StaticResource PrimaryText}"
                             Text="{Binding Name}" />
                     </Grid>

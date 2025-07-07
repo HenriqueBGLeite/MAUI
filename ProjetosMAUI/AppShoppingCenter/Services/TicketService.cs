@@ -42,7 +42,6 @@ namespace AppShoppingCenter.Services
         }
         public static List<Ticket> GetTickets()
         {
-            //TODO - Pegar os tickets armazenados no dispositivo.
             return null;
         }
     }

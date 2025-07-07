@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:media="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     xmlns:vm="clr-namespace:AppShoppingCenter.ViewModels.Cinemas"
-    Title="DetailPage">
+    Title="Voltar">
     <ContentPage.BindingContext>
         <vm:DetailPageViewModel />
     </ContentPage.BindingContext>
@@ -13,6 +13,8 @@
         <media:MediaElement
             x:Name="player"
             HeightRequest="320"
+            SemanticProperties.Description="Player onde se vê trechos selecionados do filme."
+            SemanticProperties.Hint="Trailer"
             ShouldLoopPlayback="True"
             ShouldShowPlaybackControls="False"
             Source="{Binding Movie.Trailer}"
@@ -20,6 +22,7 @@
         <Image
             Margin="15"
             HorizontalOptions="Start"
+            SemanticProperties.Hint="Botão de fechar."
             Source="close.png"
             VerticalOptions="Start"
             WidthRequest="29">
@@ -30,6 +33,7 @@
         <Image
             x:Name="btn_playpause"
             Margin="0,110,0,0"
+            SemanticProperties.Hint="Botão de play do trailer."
             Source="play.png"
             VerticalOptions="Start"
             WidthRequest="50">
@@ -48,8 +52,9 @@
             VerticalOptions="Start"
             WidthRequest="82">
             <HorizontalStackLayout Spacing="4">
-                <Image Source="clock.png" WidthRequest="19" />
+                <Image Source="{AppThemeBinding Light='clock.png', Dark='clock_light.png'}" WidthRequest="19" />
                 <Label
+                    SemanticProperties.Hint="{Binding Movie.Duration, StringFormat='Duração do filme: {0:hh} horas e {0:mm} minutos.'}"
                     Style="{StaticResource DurationText}"
                     Text="{Binding Movie.Duration}"
                     VerticalOptions="Center" />
@@ -69,6 +74,7 @@
                     <Label
                         HorizontalOptions="Center"
                         HorizontalTextAlignment="Center"
+                        SemanticProperties.HeadingLevel="Level1"
                         Style="{StaticResource PrimaryText}"
                         Text="{Binding Movie.Name}" />
                     <Label
