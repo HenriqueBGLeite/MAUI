@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShoppingCenter", "AppSho
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppShoppingCenter.Models", "AppShoppingCenter.Models\AppShoppingCenter.Models.csproj", "{5D8AA632-4424-4338-B03C-974A70F40DFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTask.Api", "AppTask.Api\AppTask.Api.csproj", "{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,6 +129,10 @@ Global
 		{5D8AA632-4424-4338-B03C-974A70F40DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D8AA632-4424-4338-B03C-974A70F40DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D8AA632-4424-4338-B03C-974A70F40DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{545FACD2-0594-45ED-9B72-8CDCE7DEAB8E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{FE4FCAB8-A3B1-4E5C-9E07-3E1C6EE0F85B} = {545FACD2-0594-45ED-9B72-8CDCE7DEAB8E}
 		{5D8AA632-4424-4338-B03C-974A70F40DFA} = {545FACD2-0594-45ED-9B72-8CDCE7DEAB8E}
+		{CA1F13BC-00BD-45A3-94B6-54D8F9D6F8D0} = {FB9A59D0-536A-4979-8699-EAB750AEF2C6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73E0B0C4-C2A3-4993-B100-51E408160F4F}

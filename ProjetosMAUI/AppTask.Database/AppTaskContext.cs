@@ -10,14 +10,13 @@ namespace AppTask.Database
 {
     public class AppTaskContext : DbContext
     {
+        public DbSet<UserModel> Users { get; set; }
         public DbSet<TaskModel> Tasks { get; set; }
-
         public DbSet<SubTaskModel> SubTasks { get; set; }
 
         public AppTaskContext()
         {
             Database.Migrate();
-
             ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
@@ -28,6 +27,7 @@ namespace AppTask.Database
             var dataBasePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "apptask.db");
 
             optionsBuilder.UseSqlite($"Filename={dataBasePath}");
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
     }
 }

@@ -1,31 +1,34 @@
+using AppTask.Database.Repositories;
+using AppTask.Libraries.Authentications;
 using AppTask.Models;
-using AppTask.Repositories;
+using AppTask.Services;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace AppTask.Views;
 
 public partial class AddEditTaskPage : ContentPage
 {
     private ITaskModelRepository _repository;
+    private ITaskService _service;
     private TaskModel _task;
     private int idTask;
 
-    public AddEditTaskPage()
-	{
-		InitializeComponent();
+    public AddEditTaskPage(ITaskModelRepository repository, ITaskService service)
+    {
+        InitializeComponent();
 
-        _repository = new TaskModelRepository();
+        _repository = repository;
+        _service = service;
         _task = new TaskModel();
 
         BindableLayout.SetItemsSource(BindableLayout_Steps, _task.SubTasks);
     }
 
-    public AddEditTaskPage(TaskModel task)
+    public void SetFormToUpdate(TaskModel task)
     {
-        _repository = new TaskModelRepository();
-
-        InitializeComponent();
         _task = task;
+
         FillFields();
 
         BindableLayout.SetItemsSource(BindableLayout_Steps, _task.SubTasks);
@@ -35,7 +38,7 @@ public partial class AddEditTaskPage : ContentPage
     {
         EntryTaskName.Text = _task.Name;
         EditorTaskDescription.Text = _task.Description;
-        DatePickerTaskDate.Date = _task.PrevisionDate;
+        DatePickerTaskDate.Date = _task.PrevisionDate.Date;
     }
 
     private void CloseModal(object sender, EventArgs e)
@@ -69,10 +72,56 @@ public partial class AddEditTaskPage : ContentPage
 
     private void SaveInDatabase()
     {
-        if (_task.Id == 0)
+        if (_task.Id == default(Guid))
+        {
+            _task.UserId = UserAuth.GetUserLogged().Id;
+            _task.Id = Guid.NewGuid();
+            _task.Created = DateTimeOffset.Now;
+            _task.Updated = DateTimeOffset.Now;
+
+            foreach(var sub in _task.SubTasks)
+            {
+                sub.Id = Guid.NewGuid();
+            }
+
             _repository.Add(_task);
+
+            //Enviar para o Servidor
+            NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
+
+            if (networkAccess == NetworkAccess.Internet)
+            {
+                try
+                {
+                    _service.Add(_task);
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Opps! Ocorreu um erro inesperado!", $"Mensagem de erro: {ex.Message}", "OK");
+                }                
+            }
+        }
         else
+        {
+            _task.Updated = DateTimeOffset.Now;
+
             _repository.Update(_task);
+            
+            //Enviar para o Servidor
+            NetworkAccess networkAccess = Connectivity.Current.NetworkAccess;
+
+            if (networkAccess == NetworkAccess.Internet)
+            {
+                try
+                {
+                    _service.Update(_task);
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Opps! Ocorreu um erro inesperado!", $"Mensagem de erro: {ex.Message}", "OK");
+                }                
+            }
+        }
     }
 
     private bool ValidateData()
@@ -105,7 +154,6 @@ public partial class AddEditTaskPage : ContentPage
         _task.PrevisionDate = _task.PrevisionDate.AddMinutes(59);
         _task.PrevisionDate = _task.PrevisionDate.AddSeconds(59);
 
-        _task.Created = DateTime.Now;
         _task.IsCompleted = false;
     }
 

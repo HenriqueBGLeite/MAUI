@@ -1,19 +1,30 @@
-﻿using AppTask.Views;
+﻿using AppTask.Libraries.Authentications;
+using AppTask.Views;
 using Microsoft.Maui.Platform;
 
 namespace AppTask
 {
     public partial class App : Application
     {
-        public App()
+        public static IServiceProvider ServiceProvider { get; private set; } = default!;
+
+        public App(IServiceProvider serviceProvider)
         {
-            CustomHandler();
             InitializeComponent();
+            CustomHandler();
+            ServiceProvider = serviceProvider;
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new NavigationPage(new StartPage()));
+            if (UserAuth.GetUserLogged() == null)
+            {
+                var loginPage = ServiceProvider.GetRequiredService<LoginPage>();
+                return new Window(loginPage);
+            }
+
+            var startPage = ServiceProvider.GetRequiredService<StartPage>();
+            return new Window(new NavigationPage(startPage));
         }
 
         private void CustomHandler()

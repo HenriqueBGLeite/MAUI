@@ -8,9 +8,39 @@
     <ContentPage.Resources>
         <converter:BoolToTextDecorationStrikeThroughConverter x:Key="BoolToTextDecorationStrikeThroughConverter" />
     </ContentPage.Resources>
-    <Grid RowDefinitions="70, *">
+    <Grid RowDefinitions="auto, 55, *">
+        <!--  Final primeira linha  -->
+        <Grid
+            Padding="20"
+            ColumnDefinitions="*, Auto, Auto"
+            ColumnSpacing="5"
+            HorizontalOptions="End"
+            VerticalOptions="Center">
+            <Label
+                x:Name="LblUserEmail"
+                Margin="0,0,10,0"
+                Text="Henrique Batista"
+                VerticalTextAlignment="Center" />
+            <Button
+                Grid.Column="1"
+                Clicked="OnButtonClickedToSync"
+                ImageSource="sync.png"
+                Style="{StaticResource BtnWhite}"
+                Text="{OnPlatform Default='Sincronizar',
+                                  Android='Sync',
+                                  iOS='Sync'}" />
+            <Button
+                Grid.Column="2"
+                Clicked="OnButtonClickedToLogout"
+                ImageSource="logout.png"
+                Style="{StaticResource BtnWhite}"
+                Text="Sair" />
+        </Grid>
+        <!--  Final primeira linha  -->
+        <!--  Final segunda linha  -->
         <Border
-            Margin="20,20,20,0"
+            Grid.Row="1"
+            Margin="20,0"
             BackgroundColor="#F7F7F7"
             HeightRequest="50"
             StrokeShape="RoundRectangle 25"
@@ -33,9 +63,9 @@
                     TextColor="{StaticResource Black}" />
             </Grid>
         </Border>
-
-        <!--  Inicio segunda linha  -->
-        <CollectionView x:Name="CollectionViewTasks" Grid.Row="1">
+        <!--  Final segunda linha  -->
+        <!--  Inicio terceira linha  -->
+        <CollectionView x:Name="CollectionViewTasks" Grid.Row="2">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Grid Padding="10,5" ColumnDefinitions="70, *, 70">
@@ -49,7 +79,7 @@
                         </CheckBox>
                         <VerticalStackLayout Grid.Column="1">
                             <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer CommandParameter="{Binding Id}" Tapped="OnTapToEdit" />
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="OnTapToEdit" />
                             </VerticalStackLayout.GestureRecognizers>
                             <Label
                                 FontAttributes="Bold"
@@ -76,19 +106,19 @@
 
         <Label
             x:Name="LblEmptyText"
-            Grid.Row="1"
+            Grid.Row="2"
             HorizontalOptions="Center"
             Text="O que você deseja fazer?"
             TextColor="{StaticResource Gray400}"
             VerticalOptions="Center" />
         <Button
-            Grid.Row="1"
+            Grid.Row="2"
             Margin="15"
             Clicked="OnButtonClickedToAdd"
             HorizontalOptions="Center"
             Text="+    Adicionar Tarefa"
             VerticalOptions="End" />
 
-        <!--  Final segunda linha  -->
+        <!--  Final terceira linha  -->
     </Grid>
 </ContentPage>

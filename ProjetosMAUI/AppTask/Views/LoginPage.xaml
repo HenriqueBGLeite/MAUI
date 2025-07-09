@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AppTask.Views.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="LoginPage">
+    <Grid>
+        <VerticalStackLayout
+            Padding="15"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Label
+                Margin="0,0,0,40"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource Header}"
+                Text="Bem-vindo ao App de Tarefas!" />
+            <Label HorizontalTextAlignment="Center" Text="Faça seu login informando seu e-mail!" />
+            <Border StrokeShape="RoundRectangle 10">
+                <Entry
+                    x:Name="EntryEmail"
+                    Keyboard="Email"
+                    Placeholder="E-mail" />
+            </Border>
+            <Label
+                x:Name="LblEmailValidateMessage"
+                Margin="5,-15,0,0"
+                IsVisible="False"
+                Text="E-mail inválido!"
+                TextColor="Red" />
+            <Button
+                x:Name="BtnNext"
+                Clicked="NextAction"
+                Text="Próximo" />
+
+            <VerticalStackLayout
+                x:Name="Step2"
+                IsVisible="False"
+                Spacing="20">
+
+                <Label HorizontalTextAlignment="Center" Text="Enviamos um e-mail para você, acesse sua caixa de entrada e digite o código no campo abaixo." />
+
+                <Border StrokeShape="RoundRectangle 10">
+                    <Entry
+                        x:Name="EntryAccessToken"
+                        MaxLength="4"
+                        Placeholder="Código" />
+                </Border>
+                <Label
+                    x:Name="LblAccessTokenValidateMessage"
+                    Margin="5,-15,0,0"
+                    IsVisible="False"
+                    Text="Código inválido!"
+                    TextColor="Red" />
+                <Button Clicked="AccessAction" Text="Acessar" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <Grid
+            x:Name="AILoading"
+            BackgroundColor="#80000000"
+            InputTransparent="False"
+            IsVisible="False">
+
+            <ActivityIndicator
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                IsRunning="True"
+                VerticalOptions="Center"
+                WidthRequest="100" />
+
+        </Grid>
+    </Grid>
+</ContentPage>

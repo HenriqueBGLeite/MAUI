@@ -1,14 +1,16 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppTask.Models
 {
     public class TaskModel : INotifyPropertyChanged
     {
-        public int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public Guid Id { get; set; }
         public string Name { get; set; } = String.Empty;
         public string Description { get; set; } = String.Empty;
-        public DateTime PrevisionDate { get; set; }
+        public DateTimeOffset PrevisionDate { get; set; }
 
         private bool _isCompleted;        
         public bool IsCompleted { 
@@ -20,8 +22,11 @@ namespace AppTask.Models
                 OnPropertyChanged(nameof(IsCompleted));
             }
         }
-        public DateTime Created {  get; set; }
-        public DateTime Updated { get; set; }
+        public Guid UserId { get; set; }
+        public UserModel? User { get; set; }
+        public DateTimeOffset Created {  get; set; }
+        public DateTimeOffset Updated { get; set; }
+        public DateTimeOffset? Deleted { get; set; }
         public ObservableCollection<SubTaskModel> SubTasks { get; set; } = [];
 
         public event PropertyChangedEventHandler? PropertyChanged;
