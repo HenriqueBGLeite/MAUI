@@ -142,6 +142,8 @@ public partial class StartPage : ContentPage
 
             //BatchPush > Enviar as tarefas que foram Criadas, Atualizadas ou Deletadas a partir da Data da ultima sincronização
             var date = SyncData.GetLastSyncDate();
+            var lastDate = DateTimeOffset.Now;
+
             List<TaskModel> localTasks = (date is null) ? _repository.GetAll(userId).ToList() : _repository.GetAll(userId).Where(a => a.Updated >= date).ToList();
 
             //TODO - API - BatchPush(GetAll) (Enviar várias tarefas - Local) > Server(API) - Analisadas e Atualizadas na base central do Aplicativo.
@@ -153,7 +155,7 @@ public partial class StartPage : ContentPage
             SynchronizationLocalDatabase(serverTasks);
 
             //TODO - App - Guardar a data da última Sincronização...
-            SyncData.SetLastSyncDate(DateTimeOffset.Now);
+            SyncData.SetLastSyncDate(lastDate);
 
             //TODO - App - Chamar o LoadData.
             LoadData();
