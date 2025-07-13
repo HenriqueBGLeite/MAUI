@@ -1,5 +1,5 @@
 using AppMAUIGallery.Views.CommunityMaui.Popups;
-using CommunityToolkit.Maui.Views;
+using CommunityToolkit.Maui.Extensions;
 
 namespace AppMAUIGallery.Views.CommunityMaui;
 

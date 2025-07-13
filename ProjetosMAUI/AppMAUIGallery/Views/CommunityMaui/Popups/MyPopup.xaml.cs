@@ -11,11 +11,11 @@ public partial class MyPopup : Popup
 
     private void OnClickedClose(object sender, EventArgs e)
     {
-		this.Close();
+		this.CloseAsync();
     }
 
     private void OnClickedSaveEmailAndClose(object sender, EventArgs e)
     {
-        this.Close();
+        this.CloseAsync();
     }
 }

@@ -4,11 +4,12 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BackgroundColor="DarkGray"
     CanBeDismissedByTappingOutsideOfPopup="False"
+    HeightRequest="200"
     HorizontalOptions="Center"
-    Size="400,200"
     VerticalOptions="Center"
-    Color="DarkGray">
+    WidthRequest="400">
     <Border Padding="20">
         <VerticalStackLayout Spacing="5">
             <Button
